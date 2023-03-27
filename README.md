@@ -12,11 +12,9 @@ In addition, the example scripts contain default models, optimizers, and evaluat
 New algorithms can be easily added and run on all of the TTAB datasets.
 
 ## TODO
-- [ ] Include more pre-trained models for different methods and datasets in the `pretrain/` directory. Using the same pre-trained model for test-time evaluation is especially important for methods that modify the training process (e.g., [TTT](https://arxiv.org/abs/1909.13231)).
-- [ ] Add [EATA](https://arxiv.org/abs/2204.02610) as a separate algorithm in `ttab/model_adaptation`? 
-- [ ] Include the results of [SAR](https://openreview.net/pdf?id=g2YraF75Tj) with different models (GN, LN models) in the revision.
-- [ ] Some important methods are still missing from the current benchmark, e.g. [TTAC](https://arxiv.org/abs/2206.02721), [AdaContrast](https://arxiv.org/abs/2204.10377).
-- [ ] Include our rebuttal discussions regarding more detailed motivations of the oracle model selection in the paper.
+- [ ] Add some pre-trained checkpoints.
+- [ ] Split [EATA](https://arxiv.org/abs/2204.02610) and [SAR](https://openreview.net/pdf?id=g2YraF75Tj) implementations
+- [ ] Add latest methods, e.g., [TTAC](https://arxiv.org/abs/2206.02721), [AdaContrast](https://arxiv.org/abs/2204.10377).
 
 ## Installation
 To run a baseline test, please prepare the relevant pre-trained checkpoints for the base model and place them in `pretrain/ckpt/`.
