@@ -12,10 +12,10 @@ In addition, the example scripts contain default models, optimizers, and evaluat
 New algorithms can be easily added and run on all of the TTAB datasets.
 
 ## TODO
-- [ ] It would be great if you could include more pre-trained models for different methods and datasets in the pretrain/ directory. Using the same pre-trained model for test-time evaluation is especially important for methods that modify the training process (e.g., TTT).
-- [ ] Could you add EATA as a separate algorithm in ttab/model_adaptation? Currently, it seems that both EATA and SAR are included in sar.py. However, they are two distinct works, even though they were created by the same authors. Separating them would make it easier to use each one independently.
+- [ ] Include more pre-trained models for different methods and datasets in the `pretrain/` directory. Using the same pre-trained model for test-time evaluation is especially important for methods that modify the training process (e.g., [TTT](https://arxiv.org/abs/1909.13231)).
+- [ ] Add [EATA](https://arxiv.org/abs/2204.02610) as a separate algorithm in `ttab/model_adaptation`? 
 - [ ] Include the results of [SAR](https://openreview.net/pdf?id=g2YraF75Tj) with different models (GN, LN models) in the revision.
-- [ ] Some important methods are still missing from the current benchmark, e.g. TTAC, AdaContrast.
+- [ ] Some important methods are still missing from the current benchmark, e.g. [TTAC](https://arxiv.org/abs/2206.02721), [AdaContrast](https://arxiv.org/abs/2204.10377).
 - [ ] Include our rebuttal discussions regarding more detailed motivations of the oracle model selection in the paper.
 
 ## Installation
