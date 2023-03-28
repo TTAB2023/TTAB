@@ -12,8 +12,8 @@ In addition, the example scripts contain default models, optimizers, and evaluat
 New algorithms can be easily added and run on all of the TTAB datasets.
 
 ## TODO
-- [ ] Add some pre-trained checkpoints.
-- [ ] Split [EATA](https://arxiv.org/abs/2204.02610) and [SAR](https://openreview.net/pdf?id=g2YraF75Tj) implementations
+- [x] Add some pre-trained checkpoints.
+- [ ] Split [EATA](https://arxiv.org/abs/2204.02610) and [SAR](https://openreview.net/pdf?id=g2YraF75Tj) implementations.
 - [ ] Add latest methods, e.g., [TTAC](https://arxiv.org/abs/2206.02721), [AdaContrast](https://arxiv.org/abs/2204.10377).
 
 ## Installation
@@ -166,7 +166,7 @@ In addition to shared hyperparameters such as `lr`, `weight_decay`, `batch_size`
 In order to make a fair comparison across different TTA algorithms, we make reasonable modifications to these algorithms, which may induce inconsistency with their official implementation.
 
 ## Pretraining
-Under the `pretrain` folder, we provide a set of scripts that can be used to pre-train models on the in-distribution TTAB datasets. These pre-trained models were used to benchmark baselines in our paper. Note that we adopt self-supervised learning with a rotation prediction task to train the baseline model in our paper for a fair comparison. In practice, please feel free to choose whatever pre-training methods you prefer, but please pay attention to the setup of TTA methods.
+In this [link](https://drive.google.com/drive/folders/1ALNIYnnTJwqP80n9pEjSWtb_UdbcrsVi?usp=sharing), we provide a set of scripts that can be used to pre-train models on the in-distribution TTAB datasets. These pre-trained models were used to benchmark baselines in our paper. Note that we adopt self-supervised learning with a rotation prediction task to train the baseline model in our paper for a fair comparison. In practice, please feel free to choose whatever pre-training methods you prefer, but please pay attention to the setup of TTA methods.
 <!-- ## Citing TTAB -->
 
 ## Acknowledgements
