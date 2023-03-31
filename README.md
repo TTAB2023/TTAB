@@ -1,5 +1,8 @@
 # Test-Time Adaptation Benchmark (TTAB)
 
+## **:fire: Notice**
+### :bangbang: The benchmark suite is released for anonymous submissions under review. It will be further updated and deanonymized around late April. 
+
 ## Overview
 TTAB is a benchmark for standardizing and comprehensively evaluating Test-time Adaptation algorithms on a diverse array of distribution shifts.
 
