@@ -83,6 +83,8 @@ scenario2loader = {
     "note": BaseLoader,
     "sar": BaseLoader,
     "conjugate_pl": BaseLoader,
+    "cotta": BaseLoader,
+    "eata": BaseLoader
 }
 
 

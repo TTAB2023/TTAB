@@ -29,7 +29,7 @@ algorithm_defaults = {
     "t3a": {"top_M": 100},
     "shot": {
         "offline_nepoch": 30,
-        "optimizer": "SGD",  # Adam for officehome
+        "optimizer": "SGD", # Adam for officehome
         "auxiliary_batch_size": 32,
         "threshold_shot": 0.9,  # confidence threshold for online shot.
         "ent_par": 1.0,
@@ -65,7 +65,7 @@ algorithm_defaults = {
         "memory_size": 64,
         "update_every_x": 64,  # This param may change in our codebase.
         "memory_type": "PBRS",
-        "bn_momentum": 0.01,
+        "bn_momentum": 0.01, 
         "temperature": 1.0,
         "loss_scalar": 0.0,
         "iabn": False,  # replace bn with iabn layer
@@ -74,13 +74,25 @@ algorithm_defaults = {
         "use_learned_stats": True,
     },
     "sar": {
-        "sar_margin_e0": math.log(1000)
-        * 0.40,  # The threshold for reliable minimization in SAR.
-        "reset_constant_em": 0.2,  # threshold e_m for model recovery scheme
+        "sar_margin_e0": math.log(1000)*0.40, # The threshold for reliable minimization in SAR.
+        "reset_constant_em": 0.2, # threshold e_m for model recovery scheme
         "optimizer": "SGD",
     },
     "conjugate_pl": {
         "temperature_scaling": 1.0,
-        "model_eps": 0.0,  # this should be added for Polyloss model.
+        "model_eps": 0.0, # this should be added for Polyloss model.
+    },
+    "cotta": {
+        "optimizer": "Adam",
+        "alpha_teacher": 0.999, # weight of moving average for updating the teacher model.
+        "restore_prob": 0.01, # the probability of restoring model parameters.
+        "threshold_cotta": 0.92, # Threshold choice discussed in supplementary 
+    },
+    "eata": {
+        "eata_margin_e0": math.log(1000)*0.40, # The threshold for reliable minimization in EATA.
+        "eata_margin_d0": 0.05, # for filtering redundant samples.
+        "fisher_size": 2000, # number of samples to compute fisher information matrix.
+        "fisher_alpha": 50, # the trade-off between entropy and regularization loss.
+        "optimizer": "SGD",
     },
 }

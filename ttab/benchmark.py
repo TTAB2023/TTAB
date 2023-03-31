@@ -22,7 +22,6 @@ group_attributes = {
     "waterbirds": 4,  # number of groups in the dataset.
 }
 
-
 class Benchmark(object):
     def __init__(
         self,
@@ -58,21 +57,14 @@ class Benchmark(object):
         self._logger = Logger(folder_path=self._checkpoint_path)
         # adjust this line if adding more datasets that need to compute group-wise metrics.
         if self._meta_conf.base_data_name in ["waterbirds"]:
-            self._group_logger = CSVBatchLogger(
-                os.path.join(self._checkpoint_path, "tta.csv"),
-                n_groups=group_attributes[self._meta_conf.base_data_name],
-            )
-            self.tta_loss_computer = (
-                self._model_adaptation_cls.construct_group_computer(
+            self._group_logger = CSVBatchLogger(os.path.join(self._checkpoint_path, "tta.csv"), n_groups=group_attributes[self._meta_conf.base_data_name])
+            self.tta_loss_computer = self._model_adaptation_cls.construct_group_computer(
                     dataset=WBirdsDataset(
-                        root=os.path.join(
-                            self._meta_conf.data_path, self._meta_conf.data_names
-                        ),
+                        root=os.path.join(self._meta_conf.data_path, self._meta_conf.data_names),
                         split="test",
                         device=self._meta_conf.device,
                         data_augment=False,
                     )
-                )
             )
         else:
             self._group_logger = None
@@ -100,8 +92,7 @@ class Benchmark(object):
         if self._scenario.test_case.data_wise == "sample_wise":
             return 1
         elif (
-            self._scenario.test_case.data_wise
-            == "batch_wise"
+            self._scenario.test_case.data_wise == "batch_wise"
             # and self._scenario.test_case.batch_size > 1
         ):
             return self._scenario.test_case.batch_size
@@ -190,7 +181,7 @@ class Benchmark(object):
 
             # online adaptation.
             previous_batches: List[Batch] = []
-            if self._meta_conf.fishers:
+            if (self._meta_conf.model_adaptation_method == "eata") or (self._meta_conf.fishers):
                 self._model_adaptation_cls.compute_fishers(
                     scenario=self._scenario, data_size=self._meta_conf.fisher_size
                 )
@@ -216,15 +207,13 @@ class Benchmark(object):
         stats = self._metrics.tracker()
         if self._meta_conf.base_data_name in ["waterbirds"]:
             group_stats_dict = self.tta_loss_computer.get_stats()
-            tta_metrics = self.tta_loss_computer.get_target_metrics(
-                group_stats_dict, self._meta_conf.group_counts
-            )
+            tta_metrics = self.tta_loss_computer.get_target_metrics(group_stats_dict, self._meta_conf.group_counts)
             self._group_logger.log(epoch=0, batch=step, stats_dict=group_stats_dict)
             self._group_logger.flush()
             # self.tta_loss_computer.log_stats(self._group_logger, is_training=False)
             self._group_logger.close()
-            stats["group_avg_accuracy"] = tta_metrics["avg_acc"] * 100
-            stats["worst_group_accuracy"] = tta_metrics["robust_acc"] * 100
+            stats["group_avg_accuracy"] = tta_metrics["avg_acc"]*100
+            stats["worst_group_accuracy"] = tta_metrics["robust_acc"]*100
 
         self._logger.log(f"stats of test-time adaptation={stats}.")
         self._logger.log_metric(

@@ -10,6 +10,8 @@ from .ttt_plus_plus import TTTPlusPlus
 from .note import NOTE
 from .sar import SAR
 from .conjugate_pl import ConjugatePL
+from .cotta import CoTTA
+from .eata import EATA
 
 
 def get_model_adaptation_method(adaptation_name):
@@ -25,4 +27,6 @@ def get_model_adaptation_method(adaptation_name):
         "note": NOTE,
         "sar": SAR,
         "conjugate_pl": ConjugatePL,
+        "cotta": CoTTA,
+        "eata": EATA,
     }[adaptation_name]

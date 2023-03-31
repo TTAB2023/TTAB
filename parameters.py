@@ -36,8 +36,8 @@ def get_args():
     parser.add_argument("--group_norm_num_groups", default=None, type=int)
     parser.add_argument(
         "--model_adaptation_method",
-        default="sar",
-        choices=["no_adaptation", "tent", "bn_adapt", "memo", "shot", "t3a", "ttt", "ttt_plus_plus", "note", "sar", "conjugate_pl"],
+        default="eata",
+        choices=["no_adaptation", "tent", "bn_adapt", "memo", "shot", "t3a", "ttt", "ttt_plus_plus", "note", "sar", "conjugate_pl", "cotta", "eata"],
         type=str,
     )
     parser.add_argument("--model_selection_method", default="last_iterate", type=str)
@@ -47,12 +47,12 @@ def get_args():
     parser.add_argument("--test_scenario", default=None, type=str)
     parser.add_argument(
         "--base_data_name",
-        default="cifar100",
+        default="cifar10",
         choices=["cifar10", "cifar100", "officehome", "imagenet", "coloredmnist", "waterbirds", "pacs"],
         type=str,
     )
-    parser.add_argument("--in_data_name", default="cifar100", type=str)
-    parser.add_argument("--data_names", default="cifar100_c_deterministic-contrast-5", type=str)
+    parser.add_argument("--in_data_name", default="cifar10", type=str)
+    parser.add_argument("--data_names", default="cifar10_c_deterministic-gaussian_noise-5", type=str)
     parser.add_argument(
         "--data_wise",
         default="batch_wise",
@@ -64,7 +64,7 @@ def get_args():
     parser.add_argument("--n_train_steps", default=1, type=int)
     parser.add_argument("--offline_pre_adapt", default=False, type=str2bool)
     parser.add_argument("--episodic", default=False, type=str2bool)
-    parser.add_argument("--intra_domain_shuffle", default=True, type=str2bool)
+    parser.add_argument("--intra_domain_shuffle", default=False, type=str2bool)
     parser.add_argument(
         "--inter_domain",
         default="HomogeneousNoMixture",
