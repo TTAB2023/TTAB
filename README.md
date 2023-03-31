@@ -16,7 +16,7 @@ New algorithms can be easily added and run on all of the TTAB datasets.
 
 ## TODO
 - [x] Add some pre-trained checkpoints.
-- [ ] Split [EATA](https://arxiv.org/abs/2204.02610) and [SAR](https://openreview.net/pdf?id=g2YraF75Tj) implementations.
+- [x] Split [EATA](https://arxiv.org/abs/2204.02610) and [SAR](https://openreview.net/pdf?id=g2YraF75Tj) implementations.
 - [ ] Add latest methods, e.g., [TTAC](https://arxiv.org/abs/2206.02721), [AdaContrast](https://arxiv.org/abs/2204.10377).
 
 ## Installation
